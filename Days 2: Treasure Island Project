@@ -1,0 +1,47 @@
+# Code
+
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.")
+
+direction = input("You are at an cross road, where do you  wanna go ? L(left) or R(right)\n" ).upper()
+
+if direction == "L":
+    swim = input("You wanna Swim or wait\n").upper()
+    if swim == "W":
+        door = input("Which door would you choose among these color, red - blue - yellow\n").upper()
+        if door == "Y":
+            print("You dont get to see the aliens and you get to return to your homeland")
+        elif door == "B":
+            print("You get killed by thanos")
+        elif door == "R":
+            print("You shall be imprisoned for eternity")
+        else:
+            print(""".     .       .  .   . .   .   . .    +  .
+  .     .  :     .    .. :. .___---------___.
+       .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
+    .  :       .  .  .:../:            . .^  :.:\.
+        .   . :: +. :.:/: .   .    .        . . .:\
+ .  :    .     . _ :::/:               .  ^ .  . .:\
+  .. . .   . - : :.:./.                        .  .:\
+  .      .     . :..|:                    .  .  ^. .:|
+    .       . : : ..||        .                . . !:|
+  .     . . . ::. ::\(                           . :)/
+ .   .     : . : .:.|. ######              .#######::|
+  :.. .  :-  : .:  ::|.#######           ..########:|
+ .  .  .  ..  .  .. :\ ########          :######## :/
+  .        .+ :: : -.:\ ########       . ########.:/
+    .  .+   . . . . :.:\. #######       #######..:/
+      :: . . . . ::.:..:.\           .   .   ..:/
+   .   .   .  .. :  -::::.\.       | |     . .:/
+      .  :  .  .  .-:.":.::.\             ..:/
+ .      -.   . . . .: .:::.:.\.           .:/
+.   .   .  :      : ....::_:..:\   ___.  :/
+   .   .  .   .:. .. .  .: :.:.:\       :/
+     +   .   .   : . ::. :.:. .:.|\  .:/|
+     .         +   .  .  ...:: ..|  --.:|
+.      . . .   .  .  . ... :..:.."(  ..)"
+ .   .       .      :  .   .: ::/  .  .::\ """)
+    else:
+        print("You get eaten by sharks")
+else:
+    print("You killed by an alien")
