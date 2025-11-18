@@ -1,46 +1,74 @@
-import turtle
+# with open("weather_data.csv",'r') as data:
+#     weather = data.readlines()
+#     print(weather)
+
+import csv
+#
+# with open("weather_data.csv") as data_file:
+#     data = csv.reader(data_file)
+#     temperature = []
+#     for row in data:
+#         if row[1] != 'temp':
+#             temperature.append(int(row[1]))
+#     print(temperature)
+
+
 import pandas as pd
+data = pd.read_csv("weather_data.csv")
+#print(data["temp"])
 
-screen = turtle.Screen()
-screen.title("U.S states Game")
-image = "blank_states_img.gif"
-screen.addshape(image)
-turtle.shape(image)
-guess_states = []
+data_dict = data.to_dict()
+#print(data_dict)
 
-while len(guess_states) < 50:
-    data = pd.read_csv("50_states.csv")
-    all_states = data.state.to_list()
-    answer_state = screen.textinput(title=f"{len(guess_states)} Guessed is correct",
-                                    prompt="What's the province names").title()
-    if answer_state == "Exit":
-        missing_states = []
-        for states in all_states:
-            if states not in guess_states:
-                missing_states.append(states)
-        new_data = pd.DataFrame(missing_states)
-        new_data.to_csv("states_to_learn.csv")
-        break
-    #If answer_state is one of the states in all the states of the 50_states.csv
-    if answer_state in all_states: # will only work, if you converted the csv to list
-        guess_states.append(answer_state)
-        t = turtle.Turtle()#if they got it right
-        t.hideturtle()
-        t.penup()
-        state_row = data[data.state == answer_state]
-        t.goto(state_row.x.item(), state_row.y.item())
-        t.write(answer_state)
+# temp_list = data["temp"].to_list()
+# print(temp_list)
+#
+# mean = sum(temp_list)/len(temp_list)
+# print(mean)
 
-#states to learn.csv
+# print(data["temp"].mean())
+# print(data["temp"].max())
+# print(data["temp"].quantile()) # This will work more like series
+# print(data.condition) # This is more like an object
 
-"""
-This code will get you the coordinates in the map 
-
-def get_mouse_click_coor(x,y): - We defined the function here
-    print(x,y) - This is to print the coordinates 
+# print(data[data["temp"] == data["temp"].max()])
+#
+# monday = data[data.day == "Monday"]
+# # print(monday.condition)
+# # print(monday.temp)
+#
+# fahrenheit = (monday.temp[0] * 9/5) + 32
+# print(fahrenheit)
+#
+# data_dictionary = {
+#     "students" : ["Amy","Abhi", "Alex"],
+#     "score" : [90,99,98]
+# }
+#
+# data = pd.DataFrame(data_dictionary)
+# data.to_csv("new_data.csv")
 
 
-turtle.onscreenclick(get_mouse_click_coor) - This will give the coordinates
-turtle.mainloop() - This will keep the image open and won't exit on click
-"""
-screen.exitonclick()
+df = pd.read_csv("2018_Central_Park_Squirrel_Census.csv")
+squirrel = df.groupby("Primary Fur Color")["Primary Fur Color"].count()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
